@@ -1,0 +1,18 @@
+<div class="form-inline">
+  <label class="label label-default mr-2" style="color: white; float: left;">Search any place</label>
+  <input class="form-control mr-2" placeholder="search..." (keydown.enter)="$event.preventDefault()" style="width: 50%;"
+    type="text" name="search" id="search" #search>
+  <button class="btn btn-primary" (click)="onClick()">Search</button>
+</div>
+<agm-map [latitude]="latitude" [longitude]="longitude" [mapTypeControl]="true" [mapTypeId]="'satellite'">
+  <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)">
+  </agm-marker>
+</agm-map>
+<div style="color: white;">
+  <h5>Address: {{address}}</h5>
+  <div>Latitude: {{latitude}}</div>
+  <div>Longitude: {{longitude}}</div>
+  <div>Altitude: {{getString}}</div>
+  <div>Timestamp: {{getTimesstamp}}</div>
+  <div>PlaceId: {{placeId}}</div>
+</div>

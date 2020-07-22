@@ -9,11 +9,32 @@
   width: 20rem;
 }
 
+mat-radio-group {
+  display: inline-block;
+  background-color: wheat;
+  color: black;
+  align-items: center;
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.label {
+  display: block;
+  font-size: 1.5em;
+  font-weight: 700;
+  font-family: var(--font-barlowCondensed);
+  line-height: 1.25em;
+  margin: 0 0 0.6em;
+  padding: 0;
+  text-transform: uppercase;
+}
+
 .row {
   margin: auto;
   overflow-x: scroll;
   overflow-y: hidden;
   width: 100%;
+  height: 350px;
 }
 
 .row::-webkit-scrollbar {
@@ -22,7 +43,7 @@
 
 .p {
   display: inline-block;
-  height: 200px; 
+  height: 200px;
   width: 200px;
   text-align: justify;
 }
@@ -34,15 +55,14 @@
   transition: 450ms transform, 450ms -webkit-transform;
   font-size: 0;
   white-space: nowrap;
-  margin: 80px 10px;
-  padding-bottom: 10px;
+  margin: 60px 10px;
 }
 
 .tile {
   position: relative;
   display: inline-block;
-  width: 250px;
-  height: 140.625px;
+  width: 150px;
+  height: 200px;
   margin-right: 10px;
   font-size: 20px;
   cursor: pointer;
@@ -53,14 +73,15 @@
 }
 
 .tile__img {
-  width: 250px;
-  height: 140.625px;
-  -o-object-fit: cover;
-  object-fit: cover;
+  width: 150px;
+  height: 200px;
+  object-fit: fill;
 }
 
 .tile__details {
   position: absolute;
+  width: 150px;
+  height: 200px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -96,12 +117,13 @@
 }
 
 .tile__details:before {
-  content: '▶';
+  content: "\f04b";
+  font-family: "FontAwesome";
   left: 0;
   width: 100%;
   font-size: 30px;
-  margin-left: 7px;
-  margin-top: -18px;
+  margin-top: -20px;
+  margin-left: 3px;
   text-align: center;
   z-index: 2;
 }
@@ -114,6 +136,13 @@
   position: absolute;
   bottom: 0;
   padding: 10px;
+}
+
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); 
 }
 
 .hide {

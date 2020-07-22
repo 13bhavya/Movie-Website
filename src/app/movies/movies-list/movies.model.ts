@@ -7,3 +7,7 @@ export interface Movies {
     results: MovieItem[]
 
 }
+
+export interface Shows {
+    
+}

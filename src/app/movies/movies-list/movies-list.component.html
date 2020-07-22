@@ -2,14 +2,20 @@
   <form class="form-inline justify-content-center" (ngSubmit)="onSubmit(f)" #f="ngForm">
     <input class="form-control mr-2" type="text" name="search" ngModel required #username="ngModel"
       placeholder="search...">
-    <button class="btn btn-primary " type="submit">Search</button>
+    <button class="btn btn-primary" type="submit">Search</button>
     <!-- <button class="btn btn-success"></button> -->
   </form>
 </div>
+
+<mat-radio-group (change)="radioChangeHandler($event)">
+  <mat-radio-button value="1" checked>Popular</mat-radio-button>
+  <mat-radio-button value="2">In Theatres</mat-radio-button>
+  <mat-radio-button value="3">Upcoming Movies</mat-radio-button>
+</mat-radio-group>
 <div class="row">
-  <div (mouseover)="changeText=true" (mouseout)="changeText=false" class="row__inner">
-    <div *ngFor="let movie of movieItems; let i = index" class="tile">
-      <div class=" tile__media">
+  <div class="row__inner">
+    <div *ngFor="let movie of movieRadio; let i = index" class="tile" (click)="open(content)">
+      <div class="tile__media">
         <img class="tile__img" src={{movie.imageUrl}} alt="" />
       </div>
       <div class="tile__details">
@@ -17,8 +23,35 @@
           {{movie.title}} Rating: {{movie.rating}}
         </div>
       </div>
-      <div *ngIf="changeText">
-        <p>{{movie.overview}}</p>
+    </div>
+  </div>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+<div class="row">
+  <div class="row__inner">
+    <div *ngFor="let movie of movieItems; let i = index" class="tile">
+      <div class="tile__media">
+        <img class="tile__img" src={{movie.imageUrl}} alt="" />
+      </div>
+      <div class="tile__details">
+        <div class="tile__title">
+          {{movie.title}} Rating: {{movie.rating}}
+        </div>
       </div>
     </div>
   </div>

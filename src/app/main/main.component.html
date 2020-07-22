@@ -14,13 +14,19 @@
           (click)="onSubmit()" type="submit">Submit</button>
         <button class="btn btn-warning" (click)="onClearfromMain()" type="submit">Clear</button>
       </div>
+      <!-- <div class="form-inline">
+        <label class="label label-default mr-2" style="color: white; float: left;">Search any place</label>
+        <input class="form-control mr-2" placeholder="search..." style="width: 50%;" type="text" name="search"
+          id="search" [(ngModel)]="search">
+        <button class="btn btn-primary" (click)="onClick()">Search</button>
+      </div> -->
+      <!-- <app-map-agm [searchpass]="search"></app-map-agm> -->
     </form>
-    <div>
-      <app-map></app-map>
-    </div>
+    <app-map-agm></app-map-agm>
   </div>
   <div style="color: white;" class="col-7">
     <app-main-side (Resetfield)="onClearfield($event)" *ngFor="let name of names; let i = index" [name]="name"
       [index]="i"></app-main-side>
+    
   </div>
 </div>

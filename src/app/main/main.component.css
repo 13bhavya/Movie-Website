@@ -10,3 +10,7 @@ body {
 .agm-map-content {
   display: none;
 }
+
+.form-inline .form-control {
+  width: 20rem;
+}

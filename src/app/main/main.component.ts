@@ -13,6 +13,7 @@ export class MainComponent implements OnInit {
   name: string = '';
   email: string = '';
   names: Names[];
+  search: string = "asasd";
   resetField = false;
   private ChangedSub: Subscription;
 
